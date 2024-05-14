@@ -1,27 +1,32 @@
 // Code your solution in this file!
 function distanceFromHqInBlocks(distance){
-    if(distance > 42){
-        return distance - 42;
-    }else if(distance < 42){
-        return 42 - distance;
-    }
+    return Math.abs(distance-42)   
 }
 
 function distanceFromHqInFeet(distance) {
-    distanceFromHqInBlocks(distance);
-    if(distance > 42){
-        return ((distance - 42)*264);
+    const blocks=distanceFromHqInBlocks(distance);
+    const feetPerBlock = 264;
+    return blocks * feetPerBlock
+
+    /*if(distance > 42){
+        //return ((distance - 42)*264);
     }else if(distance < 42){
-        return ((42 - distance)*264);   
-   }
+        //return ((42 - distance)*264);   
+   }*/
 }
 
 function distanceTravelledInFeet(start, destination) {
-    if (destination > start){
+    
+    const startDistance = distanceFromHqInFeet(start)
+    const destinationDistance = distanceFromHqInFeet(destination)
+
+    return Math.abs(startDistance-destinationDistance)
+
+    /*if (destination > start){
         return ((destination - start)*264);
     }else if(destination < start){
         return ((start - destination)*264);
-    }
+    }*/
   }
 
   function calculatesFarePrice(start, destination) {
@@ -37,6 +42,14 @@ function distanceTravelledInFeet(start, destination) {
     return "cannot travel that far"
    }
   }
+
+console.log(distanceFromHqInBlocks(89))
+
+console.log(distanceFromHqInFeet(89))
+
+console.log(distanceTravelledInFeet(89, 70))
+
+console.log(calculatesFarePrice(89, 70))
 
 
 
